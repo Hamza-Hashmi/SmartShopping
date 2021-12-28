@@ -3,4 +3,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="find_food_near_you">Find Food Near You..</string>
+    <string name="most_popular">Most Popular</string>
+    <string name="start_exploring">Start exploring</string>
+    <string name="women_frok">Women Frok</string>
+    <string name="rs_1000_00">Rs: 1000,00</string>
+    <string name="the_cornor_shop">The Cornor shop</string>
+    <string name="girls_full_dress">Girls Full Dress</string>
+    <string name="price">Price</string>
+    <string name="_240">$240</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>

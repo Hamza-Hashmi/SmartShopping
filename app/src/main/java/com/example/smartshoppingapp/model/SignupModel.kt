@@ -1,3 +1,3 @@
 package com.example.smartshoppingapp.model
 
-data class SignupModel("")
+data class SignupModel(var userName: String)

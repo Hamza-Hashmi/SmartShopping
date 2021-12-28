@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/homeFragment"
-        android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"/>
-
-    <item android:id="@+id/cartFragment"
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_dashboard"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/nearbyFragment"
+        android:icon="@drawable/ic_nearby"
+        android:title="Near by" />
+    <item
         android:title="Cart"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
-
+        android:id="@+id/cartFragment"
+        android:icon="@drawable/ic_cart" />
+    <item
+        android:id="@+id/savedFragment"
+        android:icon="@drawable/ic_saved"
+        android:title="Saved" />
+    <item
+        android:id="@+id/notificationFragment"
+        android:icon="@drawable/ic_notification"
+        android:title="Notifications" />
 </menu>

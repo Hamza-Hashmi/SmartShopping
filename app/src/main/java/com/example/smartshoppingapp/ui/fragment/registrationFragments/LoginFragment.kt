@@ -29,6 +29,7 @@ class LoginFragment : Fragment() {
 
                 Intent(requireContext(),DashBoardActivity::class.java).also {
                     startActivity(it)
+                    requireActivity().finish()
                 }
 
             }
