@@ -64,10 +64,38 @@
             android:layout_marginLeft="@dimen/_30sdp"
             android:layout_marginRight="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:hint="Email"
+            android:hint="Name"
             android:inputType="textEmailAddress"
             android:background="@drawable/stroke_bg"
             app:layout_constraintTop_toBottomOf="@id/login_text"
+            android:id="@+id/signup_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"/>
+
+        <EditText
+            android:textSize="12sp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:background="@drawable/stroke_bg"
+            app:layout_constraintTop_toBottomOf="@id/signup_user_name"
+            android:id="@+id/signup_user_phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"/>
+
+        <EditText
+            android:textSize="12sp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/stroke_bg"
+            app:layout_constraintTop_toBottomOf="@id/signup_user_phone"
             android:id="@+id/signup_user_email"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"/>
