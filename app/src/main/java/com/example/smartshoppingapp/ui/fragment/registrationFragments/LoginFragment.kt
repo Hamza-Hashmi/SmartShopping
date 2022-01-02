@@ -3,19 +3,17 @@ package com.example.smartshoppingapp.ui.fragment.registrationFragments
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.smartshoppingapp.AppUtils.Constants.Companion.authToken
 import com.example.smartshoppingapp.AppUtils.SharedHelper
 import com.example.smartshoppingapp.MainActivity
 import com.example.smartshoppingapp.R
 import com.example.smartshoppingapp.databinding.FragmentLoginBinding
-import com.example.smartshoppingapp.isEmailValid
 import com.example.smartshoppingapp.ui.activites.DashBoardActivity
 import com.example.smartshoppingapp.viewModels.RegistrationViewModel
 

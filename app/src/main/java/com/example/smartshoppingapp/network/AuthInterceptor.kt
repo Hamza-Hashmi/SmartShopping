@@ -10,7 +10,8 @@ class AuthInterceptor(val context: Context) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val requestBuilder = chain.request().newBuilder()
-        SharedHelper.getKey(context,authToken).let {
+
+        SharedHelper.getKey(context, authToken).let {
             requestBuilder.addHeader("Authorization", "Bearer $it")
         }
         return chain.proceed(requestBuilder.build())

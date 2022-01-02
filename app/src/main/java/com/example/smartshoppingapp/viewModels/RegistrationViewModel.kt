@@ -1,15 +1,11 @@
 package com.example.smartshoppingapp.viewModels
 
-import android.content.res.Resources
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.smartshoppingapp.dataRepository.RemoteDataRepo
-import com.example.smartshoppingapp.model.LoginResponse
-import com.example.smartshoppingapp.model.SignupModel
-import com.example.smartshoppingapp.model.SignupResponse
+import com.example.smartshoppingapp.model.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -22,21 +18,28 @@ class RegistrationViewModel(val repo:RemoteDataRepo):ViewModel() {
     /* signup Response */
     val _signUpResposne: MutableLiveData<Response<SignupResponse>> = MutableLiveData()
 
-
-
+    val _shopList: MutableLiveData<Response<ShopListResponse>> = MutableLiveData()
     /* methods*/
 
     fun signUp(userRegistration: SignupModel) = viewModelScope.launch {
-       // _signUpResposne.postValue(Resources.Loading())
 
-          val response: Response<SignupResponse> = repo.signUp(userRegistration)
+
+        val response: Response<SignupResponse> = repo.signUp(userRegistration)
 
         _signUpResposne.postValue(response)
     }
-    fun login(email:String,password:String) = viewModelScope.launch {
-        val response = repo.login(email,password)
+
+    fun login(email: String, password: String) = viewModelScope.launch {
+        val response = repo.login(email, password)
         _loginResponse.postValue(response)
     }
+
+    fun getShopList() = viewModelScope.launch {
+        val response = repo.getShopList()
+        _shopList.postValue(response)
+        Log.e("DATA", "getShopList: ${response.body()?.data}" )
+    }
+
 
 /*
     */
