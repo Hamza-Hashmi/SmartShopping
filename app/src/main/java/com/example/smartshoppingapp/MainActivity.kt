@@ -1,11 +1,9 @@
 package com.example.smartshoppingapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import com.example.smartshoppingapp.dataRepository.RemoteDataRepo
 import com.example.smartshoppingapp.databinding.ActivityMainBinding
 import com.example.smartshoppingapp.viewModels.RegistrationViewModel

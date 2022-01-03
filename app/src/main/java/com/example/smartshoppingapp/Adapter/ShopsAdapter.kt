@@ -3,14 +3,14 @@ package com.example.smartshoppingapp.Adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.smartshoppingapp.Adapter.ShopsAdapter.ShopsViewHolder
 import com.example.smartshoppingapp.databinding.CustomShopsLayoutBinding
+import com.example.smartshoppingapp.model.ShopListResponse
 import com.example.smartshoppingapp.model.ShoplistData
-import com.squareup.picasso.Picasso
 
-class ShopsAdapter(val context: Context, val shoplist: ArrayList<ShoplistData>,var callBack: (pos: Int) -> Unit) :
+class ShopsAdapter(val context: Context, val shoplist: ArrayList<ShoplistData>) :
     RecyclerView.Adapter<ShopsViewHolder>() {
 
 
@@ -26,17 +26,13 @@ class ShopsAdapter(val context: Context, val shoplist: ArrayList<ShoplistData>,v
 
 
     override fun onBindViewHolder(holder: ShopsViewHolder, position: Int) {
+        val pos = shoplist[position]
 
-        holder.binding.tvShopName.text = shoplist[position].shop_name
-        holder.binding.tvLocation.text = shoplist[position].address
+        holder.binding.tvShopName?.text = shoplist[position].shop_name
+        holder.binding.tvLocation?.text = shoplist[position].address
 
-        Picasso.get().load(shoplist[position].image).into(holder.binding.imgShop)
+        Glide.with(context).load(shoplist[position].image).centerCrop().into(holder.binding.imgShop)
 
-        Toast.makeText(context, shoplist[position].image, Toast.LENGTH_SHORT).show()
-
-        holder.itemView.setOnClickListener{
-            callBack(shoplist[position].id)
-        }
     }
 
     override fun getItemCount(): Int {

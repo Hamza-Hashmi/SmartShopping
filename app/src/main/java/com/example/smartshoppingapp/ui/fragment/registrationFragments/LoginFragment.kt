@@ -84,8 +84,12 @@ class LoginFragment : Fragment() {
                   }
                 else{
                       SharedHelper.putKey(requireContext(),authToken,it.body()?.token)
+                      SharedHelper.putKey(requireContext(), authToken, it.body()?.token)
+                      //Log.e("TAG", "allowLoginUser: ${it.body()?.token}" )
+                      val userID = it.body()?.user_id
+                      SharedHelper.putKey(requireContext(), "userID", userID.toString())
                       binding.progressbar.visibility = View.GONE
-                      startActivity(Intent(requireContext(),DashBoardActivity::class.java))
+                      startActivity(Intent(requireContext(), DashBoardActivity::class.java))
                       activity?.finish()
                   }
 

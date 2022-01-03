@@ -18,6 +18,10 @@ class RemoteDataRepo(val context: Context) {
     suspend fun getProductsList(id:Int):Response<ShopProductResponse> = RetrofitInstance.getapi(context).getProductsList(id)
 
 
+    suspend fun getPayment(): Response<PaymentResponse> =
+        PaymentInstance.getPayApi(context).getPayment()
+
+    suspend fun addCart(cartModel: CartModel) : Response<CartResponse> = RetrofitInstance.getapi(context).addCart(cartModel)
 }
 
 

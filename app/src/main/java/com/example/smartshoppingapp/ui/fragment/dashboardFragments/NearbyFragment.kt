@@ -4,11 +4,18 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.content.Context
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.smartshoppingapp.Adapter.ShopsAdapter
@@ -46,6 +53,23 @@ class NearbyFragment : Fragment() {
             fusedLocationProviderClient =
                 LocationServices.getFusedLocationProviderClient(requireContext())
             val task = fusedLocationProviderClient.lastLocation
+            viewModel._shopList.observe(viewLifecycleOwner, {
+                shopsAdapter =
+                    ShopsAdapter(requireContext(), it.body()?.data as ArrayList<ShoplistData>)
+                for (i in 0 until shopsAdapter.itemCount) {
+                    val data = it.body()!!
+                    val lat = data.data[i].latitude
+                    val long = data.data[i].longitude
+
+                    Toast.makeText(requireContext(), "$lat,$long", Toast.LENGTH_SHORT).show()
+                    googleMap.addMarker(
+                        MarkerOptions()
+                            .position(LatLng(33.63590279711394, 73.07044803999847))
+                            .title(data.data[i].shop_name)
+                            .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.ic_shop))
+                    )?.showInfoWindow()
+                }
+            })
             task.addOnSuccessListener {
                 val marker = LatLng(it.latitude, it.longitude)
                 googleMap.addMarker(MarkerOptions().position(marker).title("Marker in Sydney"))
@@ -117,4 +141,15 @@ class NearbyFragment : Fragment() {
         )
         return Radius * c
     }*/
+    }
+
+    private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
+        return ContextCompat.getDrawable(context, vectorResId)?.run {
+            setBounds(0, 0, intrinsicWidth, intrinsicHeight)
+            val bitmap =
+                Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
+            draw(Canvas(bitmap))
+            BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
+    }
 }

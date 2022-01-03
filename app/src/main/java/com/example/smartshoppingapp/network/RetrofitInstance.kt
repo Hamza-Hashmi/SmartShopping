@@ -1,12 +1,11 @@
 package com.example.smartshoppingapp.network
 
 import android.content.Context
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-import com.google.gson.GsonBuilder
 
 
 object RetrofitInstance {
@@ -27,12 +26,17 @@ object RetrofitInstance {
             .addInterceptor(logging)
             .build()
 
-        val retrofit =  Retrofit
+        val retrofit = Retrofit
             .Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(client)
             .build()
         return retrofit.create(DataApi::class.java)
+
+
     }
+
+
+
 }

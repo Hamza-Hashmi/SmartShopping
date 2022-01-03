@@ -24,4 +24,10 @@ interface DataApi {
     @GET("shop-products/{user_id}")
     suspend fun getProductsList(@Path("user_id") id:Int) : Response<ShopProductResponse>
 
+
+    @GET("userPayment")
+    suspend fun getPayment(): Response<PaymentResponse>
+
+    @POST("add-to-cart")
+    suspend fun addCart(@Body cartModel: CartModel): Response<CartResponse>
 }
