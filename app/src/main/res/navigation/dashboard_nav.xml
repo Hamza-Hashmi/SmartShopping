@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.smartshoppingapp.ui.fragment.dashboardFragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_shopProductsFragment"
+            app:destination="@id/shopProductsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.smartshoppingapp.ui.fragment.dashboardFragments.CartFragment"
@@ -29,5 +33,14 @@
         android:id="@+id/nearbyFragment"
         android:name="com.example.smartshoppingapp.ui.fragment.dashboardFragments.NearbyFragment"
         android:label="fragment_nearby"
-        tools:layout="@layout/fragment_nearby" />
+        tools:layout="@layout/fragment_nearby" >
+        <action
+            android:id="@+id/action_nearbyFragment_to_shopProductsFragment"
+            app:destination="@id/shopProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopProductsFragment"
+        android:name="com.example.smartshoppingapp.ui.fragment.produtsFragments.ShopProductsFragment"
+        android:label="fragment_shop_products"
+        tools:layout="@layout/fragment_shop_products" />
 </navigation>

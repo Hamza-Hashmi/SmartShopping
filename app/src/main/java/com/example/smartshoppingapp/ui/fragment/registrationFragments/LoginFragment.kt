@@ -40,10 +40,6 @@ class LoginFragment : Fragment() {
             }
             this.btnLogin.setOnClickListener {
 
-                /*Intent(requireContext(),DashBoardActivity::class.java).also {
-                    startActivity(it)
-                    requireActivity().finish()
-                }*/
 
                 binding.progressbar.visibility= View.VISIBLE
                 allowLoginUser()
@@ -84,10 +80,10 @@ class LoginFragment : Fragment() {
                   if (it.body()?.status.equals("fail")){
                       Toast.makeText(requireContext(), "Invalid email or password", Toast.LENGTH_SHORT).show()
                       binding.progressbar.visibility = View.GONE
+                      return@observe
                   }
                 else{
                       SharedHelper.putKey(requireContext(),authToken,it.body()?.token)
-                      //Log.e("TAG", "allowLoginUser: ${it.body()?.token}" )
                       binding.progressbar.visibility = View.GONE
                       startActivity(Intent(requireContext(),DashBoardActivity::class.java))
                       activity?.finish()

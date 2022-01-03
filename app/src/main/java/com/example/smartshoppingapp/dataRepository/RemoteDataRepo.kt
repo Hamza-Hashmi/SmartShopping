@@ -15,6 +15,9 @@ class RemoteDataRepo(val context: Context) {
     suspend fun getShopList(): Response<ShopListResponse> =
         RetrofitInstance.getapi(context).getShopList()
 
+    suspend fun getProductsList(id:Int):Response<ShopProductResponse> = RetrofitInstance.getapi(context).getProductsList(id)
+
+
 }
 
 

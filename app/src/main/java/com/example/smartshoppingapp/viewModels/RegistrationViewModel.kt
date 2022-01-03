@@ -19,6 +19,8 @@ class RegistrationViewModel(val repo:RemoteDataRepo):ViewModel() {
     val _signUpResposne: MutableLiveData<Response<SignupResponse>> = MutableLiveData()
 
     val _shopList: MutableLiveData<Response<ShopListResponse>> = MutableLiveData()
+
+    val _shopProductList:MutableLiveData<Response<ShopProductResponse>> = MutableLiveData()
     /* methods*/
 
     fun signUp(userRegistration: SignupModel) = viewModelScope.launch {
@@ -40,6 +42,12 @@ class RegistrationViewModel(val repo:RemoteDataRepo):ViewModel() {
         Log.e("DATA", "getShopList: ${response.body()?.data}" )
     }
 
+
+    fun getShopProductList(id:Int) = viewModelScope.launch {
+         val response = repo.getProductsList(id)
+        _shopProductList.postValue(response)
+
+    }
 
 /*
     */

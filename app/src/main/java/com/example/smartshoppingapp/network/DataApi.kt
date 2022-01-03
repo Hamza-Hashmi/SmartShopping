@@ -1,9 +1,6 @@
 package com.example.smartshoppingapp.network
 
-import com.example.smartshoppingapp.model.LoginResponse
-import com.example.smartshoppingapp.model.ShopListResponse
-import com.example.smartshoppingapp.model.SignupModel
-import com.example.smartshoppingapp.model.SignupResponse
+import com.example.smartshoppingapp.model.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -23,4 +20,8 @@ interface DataApi {
 
     @GET("shop-list")
     suspend fun getShopList(): Response<ShopListResponse>
+
+    @GET("shop-products/{user_id}")
+    suspend fun getProductsList(@Path("user_id") id:Int) : Response<ShopProductResponse>
+
 }
