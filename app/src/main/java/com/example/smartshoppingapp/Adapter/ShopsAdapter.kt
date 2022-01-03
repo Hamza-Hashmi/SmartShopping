@@ -30,7 +30,7 @@ class ShopsAdapter(val context: Context, val shoplist: ArrayList<ShoplistData>,v
         holder.binding.tvShopName.text = shoplist[position].shop_name
         holder.binding.tvLocation.text = shoplist[position].address
 
-        Picasso.get().load(pos.image).into(holder.binding.imgShop)
+        Picasso.get().load(shoplist[position].image).into(holder.binding.imgShop)
 
         Toast.makeText(context, shoplist[position].image, Toast.LENGTH_SHORT).show()
 

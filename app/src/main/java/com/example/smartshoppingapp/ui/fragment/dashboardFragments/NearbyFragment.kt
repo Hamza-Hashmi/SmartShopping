@@ -38,7 +38,7 @@ class NearbyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = (activity as DashBoardActivity).viewModel
+       /* viewModel = (activity as DashBoardActivity).viewModel
 
         val mapFragment = fragmentManager?.findFragmentById(R.id.map) as SupportMapFragment?
 
@@ -72,7 +72,7 @@ class NearbyFragment : Fragment() {
                     )?.showInfoWindow()
                 }
             })
-        }
+        }*/
         return inflater.inflate(R.layout.fragment_nearby, container, false)
     }
 

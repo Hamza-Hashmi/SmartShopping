@@ -57,9 +57,20 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/popins_regular"
         android:text="@string/rs_1000_00"
+        android:id="@+id/orignalpricetv"
         android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="@id/tvItemName"
         app:layout_constraintTop_toBottomOf="@id/tvItemName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/popins_regular"
+        android:text="@string/rs_1000_00"
+        android:id="@+id/pricetv"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="@id/tvItemName"
+        app:layout_constraintTop_toBottomOf="@id/orignalpricetv" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

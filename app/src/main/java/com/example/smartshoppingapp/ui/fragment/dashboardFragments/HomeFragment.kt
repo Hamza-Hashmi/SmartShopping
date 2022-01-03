@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
 
         viewModel = (activity as DashBoardActivity).viewModel
 
+        binding.progressbar.visibility = View.VISIBLE
         viewModel.getShopList()
         binding.recyclerviewItems.layoutManager = layoutManager
 
@@ -49,6 +50,7 @@ class HomeFragment : Fragment() {
                     findNavController().navigate(R.id.action_homeFragment_to_shopProductsFragment)
                 }
 
+            binding.progressbar.visibility = View.GONE
             binding.recyclerviewItems.adapter = shopsAdapter
         })
 

@@ -1,60 +1,80 @@
 package com.example.smartshoppingapp.ui.fragment.produtsFragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.smartshoppingapp.R
+import com.example.smartshoppingapp.databinding.FragmentProductDetailsBinding
+import com.example.smartshoppingapp.productDetail
+import com.squareup.picasso.Picasso
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProductDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProductDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    var _binding:FragmentProductDetailsBinding? = null
+    val binding get() = _binding!!
+    var count = 1
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product_details, container, false)
+
+        _binding = FragmentProductDetailsBinding.inflate(layoutInflater)
+
+        Log.e("TAG", "onCreateView product detail:  $productDetail" )
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProductDetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProductDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var totalamount = productDetail.discount_price
+
+        binding.apply {
+            this.productName.text = productDetail.product_name
+            this.tvInstock.text = productDetail.instock
+            this.orignalpricetv.text = "Orignal Price : ${productDetail.original_price}"
+            this.discountPriceTv.text = "Discount Price : ${productDetail.discount_price}"
+            this.tvProductdescription.text = productDetail.description
+            Picasso.get().load(productDetail.image).into(this.imgProduct)
+
+            this.btnIncrement.setOnClickListener {
+                count++
+
+                totalamount+= productDetail.discount_price*count
+
+                this.countTv.text = "$count"
+                this.totalAmountTv.text = "$totalamount"
+            }
+
+            this.btnDecrement.setOnClickListener {
+                count--
+
+                if (count <= 1){
+                    this.countTv.text = "1"
+                    this.totalAmountTv.text = "${productDetail.discount_price}"
+                    return@setOnClickListener
+                }else{
+                    totalamount-= productDetail.discount_price
+
+                    this.countTv.text = "$count"
+                    this.totalAmountTv.text = "$totalamount"
+
                 }
             }
+
+        }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
 }

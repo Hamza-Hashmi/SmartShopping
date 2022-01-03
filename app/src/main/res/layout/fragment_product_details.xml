@@ -47,11 +47,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvProductID"
+                android:id="@+id/tvProductdescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/popins_loght"
-                android:text="#123A43CBC48"
+                android:hint="description comes here"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14sdp"
@@ -60,69 +60,130 @@
                 app:layout_constraintTop_toBottomOf="@id/productName" />
 
             <LinearLayout
+                android:layout_width="0dp"
+                app:layout_constraintTop_toBottomOf="@id/tvProductdescription"
+                android:layout_height="wrap_content"
+                android:id="@+id/lll"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/ll1"
+                app:layout_constraintBottom_toBottomOf="@id/ll1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Orignal price : 10000 "
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/orignalpricetv"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/popins_semibold"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Discount Price : 1500"
+                    android:textSize="@dimen/_14sdp"
+                    android:id="@+id/discountPriceTv"
+                    android:fontFamily="@font/popins_bold"
+                    android:textColor="@color/main_color"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/ll1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintRight_toRightOf="@id/tvProductID"
-                app:layout_constraintTop_toBottomOf="@id/tvProductID">
+                app:layout_constraintRight_toRightOf="@id/tvProductdescription"
+                app:layout_constraintTop_toBottomOf="@id/tvProductdescription">
 
                 <TextView
                     style="@style/headingStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/price"
+                    android:text="InStock"
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/tvPrice"
+                    android:id="@+id/tvInstock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/popins_semibold"
-                    android:text="@string/_240"
-                    android:textSize="@dimen/_14sdp" />
+                    android:text="available"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/bl"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll1">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/spSize"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/imgSave"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/sizes"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        tools:ignore="LabelFor" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <ImageView
-                    android:id="@+id/imgSave"
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Total Amount : "
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/totalAmountTv"
+                    android:text="15000"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/_12sdp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/ll1"
+                app:layout_constraintBottom_toTopOf="@id/bl"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <ImageButton
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:background="@drawable/rounded_main_color"
-                    android:padding="@dimen/_12sdp"
-                    android:src="@drawable/ic_unsaved"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/spSize"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                   android:src="@drawable/ic_baseline_remove_24"
+                      android:gravity="center"
+                    android:textSize="@dimen/_14sdp"
+                    android:id="@+id/btnDecrement"
+                    app:tint="@color/white" />
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="@dimen/_30sdp"
+                      android:text="0"
+                      android:textSize="@dimen/_18sdp"
+                      android:gravity="center"
+                      android:layout_marginLeft="@dimen/_10sdp"
+                      android:id="@+id/countTv"/>
+
+                <ImageButton
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/rounded_main_color"
+                    android:src="@drawable/ic_baseline_add_24"
+                    android:gravity="center"
+                    android:textSize="@dimen/_14sdp"
+                    android:id="@+id/btnIncrement"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    app:tint="@color/white" />
+
+            </LinearLayout>
+
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -130,6 +191,7 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
+                android:id="@+id/bl"
                 app:layout_constraintRight_toRightOf="parent">
 
                 <Button

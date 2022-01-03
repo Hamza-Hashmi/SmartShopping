@@ -30,17 +30,26 @@
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
     <fragment
-        android:id="@+id/nearbyFragment"
+        android:id="@+id/shopProductsFragment"
+        android:name="com.example.smartshoppingapp.ui.fragment.produtsFragments.ShopProductsFragment"
+        android:label="fragment_shop_products"
+        tools:layout="@layout/fragment_shop_products" >
+        <action
+            android:id="@+id/action_shopProductsFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nearbyFragment2"
         android:name="com.example.smartshoppingapp.ui.fragment.dashboardFragments.NearbyFragment"
         android:label="fragment_nearby"
         tools:layout="@layout/fragment_nearby" >
         <action
-            android:id="@+id/action_nearbyFragment_to_shopProductsFragment"
+            android:id="@+id/action_nearbyFragment2_to_shopProductsFragment"
             app:destination="@id/shopProductsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/shopProductsFragment"
-        android:name="com.example.smartshoppingapp.ui.fragment.produtsFragments.ShopProductsFragment"
-        android:label="fragment_shop_products"
-        tools:layout="@layout/fragment_shop_products" />
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.smartshoppingapp.ui.fragment.produtsFragments.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
 </navigation>

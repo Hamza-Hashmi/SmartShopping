@@ -1,5 +1,7 @@
 package com.example.smartshoppingapp.model
 
+import java.io.Serializable
+
 data class Data(
     val created_at: String,
     val description: String,
@@ -12,4 +14,4 @@ data class Data(
     val status: String,
     val updated_at: String,
     val user_id: Int
-)
+):Serializable

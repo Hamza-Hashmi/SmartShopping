@@ -43,11 +43,11 @@ class DashBoardActivity : AppCompatActivity() {
         _binding = ActivityDashBoardBinding.inflate(layoutInflater)
         if (isLocationPermissionGranted()) {
             if (isInternetConnected(this)) {
-                Toast.makeText(
+                /*Toast.makeText(
                     this,
                     "Success: Permission is Granted and GPS is Enabled",
                     Toast.LENGTH_SHORT
-                ).show()
+                ).show()*/
             } else {
                 showGpsDialog(this)
             }
