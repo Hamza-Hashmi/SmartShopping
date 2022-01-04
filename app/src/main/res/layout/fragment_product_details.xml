@@ -196,7 +196,7 @@
 
                 <Button
                     android:id="@+id/btnAddtoCart"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_5sdp"
                     android:background="@drawable/btn_outlined"
@@ -204,31 +204,30 @@
                     android:text="@string/add_to_cart"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
+                    android:drawableLeft="@drawable/ic_cart"
                     app:backgroundTint="@null"
+                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/btnBuyNow"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btnBuyNow"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:background="@drawable/rounded_main_color"
-                    android:fontFamily="@font/popins_regular"
-                    android:text="@string/buy_now"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@null"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/btnAddtoCart"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <!--                <Button-->
+                <!--                    android:id="@+id/btnBuyNow"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="@dimen/_5sdp"-->
+                <!--                    android:background="@drawable/rounded_main_color"-->
+                <!--                    android:fontFamily="@font/popins_regular"-->
+                <!--                    android:text="@string/buy_now"-->
+                <!--                    android:textAllCaps="false"-->
+                <!--                    android:textColor="@color/white"-->
+                <!--                    app:backgroundTint="@null"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintLeft_toRightOf="@id/btnAddtoCart"-->
+                <!--                    app:layout_constraintRight_toRightOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

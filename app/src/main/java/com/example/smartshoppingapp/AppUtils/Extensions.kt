@@ -10,6 +10,10 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
+import com.example.smartshoppingapp.model.Data
+
+var shopId = -1
+lateinit var productDetail: Data
 
 @SuppressLint("ServiceCast")
 fun isInternetConnected(context: Context): Boolean {

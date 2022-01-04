@@ -20,15 +20,18 @@ class RegistrationViewModel(val repo: RemoteDataRepo) : ViewModel() {
 
     val _shopList: MutableLiveData<Response<ShopListResponse>> = MutableLiveData()
 
-    val _shopProductList:MutableLiveData<Response<ShopProductResponse>> = MutableLiveData()
+    val _shopProductList: MutableLiveData<Response<ShopProductResponse>> = MutableLiveData()
 
     val _payment: MutableLiveData<Response<PaymentResponse>> = MutableLiveData()
 
     val _addCart: MutableLiveData<Response<CartResponse>> = MutableLiveData()
+
+    val _cartList: MutableLiveData<Response<CartListResponse>> = MutableLiveData()
+
+    val _order: MutableLiveData<Response<OrderResponse>> = MutableLiveData()
     /* methods*/
 
     fun signUp(userRegistration: SignupModel) = viewModelScope.launch {
-
 
         val response: Response<SignupResponse> = repo.signUp(userRegistration)
 
@@ -48,7 +51,12 @@ class RegistrationViewModel(val repo: RemoteDataRepo) : ViewModel() {
     fun getShopList() = viewModelScope.launch {
         val response = repo.getShopList()
         _shopList.postValue(response)
-        Log.e("DATA", "getShopList: ${response.body()?.data}" )
+        Log.e("DATA", "getShopList: ${response.body()?.data}")
+    }
+
+    fun getCartListData(user_id: Int) = viewModelScope.launch {
+        val response = repo.getCartList(user_id)
+        _cartList.postValue(response)
     }
 
     fun getPayment() = viewModelScope.launch {
@@ -58,10 +66,15 @@ class RegistrationViewModel(val repo: RemoteDataRepo) : ViewModel() {
     }
 
 
-    fun getShopProductList(id:Int) = viewModelScope.launch {
-         val response = repo.getProductsList(id)
+    fun getShopProductList(id: Int) = viewModelScope.launch {
+        val response = repo.getProductsList(id)
         _shopProductList.postValue(response)
 
+    }
+
+    fun placeOrder(User_id: Int) = viewModelScope.launch {
+        val response = repo.placeOrder(User_id)
+        _order.postValue(response)
     }
 
 /*

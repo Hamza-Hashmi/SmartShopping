@@ -1,5 +1,6 @@
 package com.example.smartshoppingapp.Adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,11 +16,14 @@ class ProductsAdapter(val shoplist: ArrayList<Data>, var callBack: (data: Data) 
         return MyViewHolder(CustomItemLayoutBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-       var productDetail = shoplist[position]
+        var productDetail = shoplist[position]
         holder.binding.tvItemName.text = productDetail.product_name
-        holder.binding.orignalpricetv.text = "Orignal Price : ${productDetail.original_price.toString()}"
-        holder.binding.pricetv.text = "Discount Price : ${productDetail.discount_price.toString()}"
+        holder.binding.orignalpricetv.text =
+            "Orignal Price :£ ${productDetail.original_price.toString()}"
+        holder.binding.pricetv.text =
+            "Discount Price :£ ${productDetail.discount_price.toString()}"
         Picasso.get().load(productDetail.image).into(holder.binding.imgPlaceholder)
         holder.itemView.setOnClickListener {
             callBack(productDetail)

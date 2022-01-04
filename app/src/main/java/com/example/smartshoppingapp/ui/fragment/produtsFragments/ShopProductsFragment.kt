@@ -2,14 +2,13 @@ package com.example.smartshoppingapp.ui.fragment.produtsFragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.smartshoppingapp.Adapter.ProductsAdapter
-import com.example.smartshoppingapp.MainActivity
 import com.example.smartshoppingapp.R
 import com.example.smartshoppingapp.databinding.FragmentShopProductsBinding
 import com.example.smartshoppingapp.model.Data

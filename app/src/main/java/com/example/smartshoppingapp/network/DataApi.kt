@@ -22,7 +22,7 @@ interface DataApi {
     suspend fun getShopList(): Response<ShopListResponse>
 
     @GET("shop-products/{user_id}")
-    suspend fun getProductsList(@Path("user_id") id:Int) : Response<ShopProductResponse>
+    suspend fun getProductsList(@Path("user_id") id: Int): Response<ShopProductResponse>
 
 
     @GET("userPayment")
@@ -30,4 +30,13 @@ interface DataApi {
 
     @POST("add-to-cart")
     suspend fun addCart(@Body cartModel: CartModel): Response<CartResponse>
+
+
+    @FormUrlEncoded
+    @POST("my-cart")
+    suspend fun getCart(@Field("user_id") userId: Int): Response<CartListResponse>
+
+    @FormUrlEncoded
+    @POST("place-order")
+    suspend fun placeOrder(@Field("user_id") User_id: Int): Response<OrderResponse>
 }

@@ -34,6 +34,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(layoutInflater)
+
         var layoutManager = GridLayoutManager(requireContext(), 2)
 
         viewModel = (activity as DashBoardActivity).viewModel

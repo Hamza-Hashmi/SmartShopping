@@ -23,7 +23,7 @@
         android:id="@+id/savedFragment"
         android:name="com.example.smartshoppingapp.ui.fragment.dashboardFragments.SavedFragment"
         android:label="fragment_saved"
-        tools:layout="@layout/fragment_saved" />
+        tools:layout="@layout/fragment_orders" />
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.smartshoppingapp.ui.fragment.dashboardFragments.NotificationFragment"

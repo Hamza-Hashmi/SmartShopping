@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/btn_outlined.xml" value="0.2324074074074074" />
+        <entry key="app/src/main/res/drawable/btn_placeorder_bg.xml" value="0.22135416666666666" />
+        <entry key="app/src/main/res/drawable/car_icon.xml" value="0.22135416666666666" />
+        <entry key="app/src/main/res/drawable/ic_cart.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/drawable/ic_shop.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/drawable/navigation_item_selector.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/drawable/progress.xml" value="0.36203703703703705" />
@@ -16,8 +19,9 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/custom_cart_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/custom_item_layout.xml" value="0.2682291666666667" />
-        <entry key="app/src/main/res/layout/custom_shops_layout.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/custom_shops_layout.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment__near_shops.xml" value="0.14010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_homefragment.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.18" />
@@ -26,7 +30,6 @@
         <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.2682291666666667" />
         <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_saved.xml" value="0.2682291666666667" />
-        <entry key="app/src/main/res/layout/fragment_shop_products.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.22" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
       </map>

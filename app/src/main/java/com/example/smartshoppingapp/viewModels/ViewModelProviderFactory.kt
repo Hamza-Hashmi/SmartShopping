@@ -10,8 +10,5 @@ class ViewModelProviderFactory (val repo: RemoteDataRepo) : ViewModelProvider.Fa
         //if (modelClass.isAssignableFrom(RegistrationViewModel::class.java)){
         return RegistrationViewModel(repo) as T
 
-        //}
-        //else return DashBoardViewModel(booksRepository) as T
-
     }
 }

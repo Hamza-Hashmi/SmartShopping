@@ -13,4 +13,5 @@
     <string name="_240">$240</string>
     <string name="buy_now">Buy Now</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="place_order">Place Order</string>
 </resources>

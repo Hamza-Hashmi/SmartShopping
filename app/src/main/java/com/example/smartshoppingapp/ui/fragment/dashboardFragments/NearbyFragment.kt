@@ -4,33 +4,18 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.content.Context
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.smartshoppingapp.Adapter.ShopsAdapter
 import com.example.smartshoppingapp.R
-import com.example.smartshoppingapp.model.ShoplistData
-import com.example.smartshoppingapp.ui.activites.DashBoardActivity
 import com.example.smartshoppingapp.viewModels.RegistrationViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 
 
 class NearbyFragment : Fragment() {
@@ -45,58 +30,58 @@ class NearbyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       /* viewModel = (activity as DashBoardActivity).viewModel
+        /*     viewModel = (activity as DashBoardActivity).viewModel
 
-        val mapFragment = fragmentManager?.findFragmentById(R.id.map) as SupportMapFragment?
+             val mapFragment = fragmentManager?.findFragmentById(R.id.map) as SupportMapFragment?
 
-        mapFragment?.getMapAsync { googleMap ->
-            fusedLocationProviderClient =
-                LocationServices.getFusedLocationProviderClient(requireContext())
-            val task = fusedLocationProviderClient.lastLocation
-            viewModel._shopList.observe(viewLifecycleOwner, {
-                shopsAdapter =
-                    ShopsAdapter(requireContext(), it.body()?.data as ArrayList<ShoplistData>)
-                for (i in 0 until shopsAdapter.itemCount) {
-                    val data = it.body()!!
-                    val lat = data.data[i].latitude
-                    val long = data.data[i].longitude
+             mapFragment?.getMapAsync { googleMap ->
+                 fusedLocationProviderClient =
+                     LocationServices.getFusedLocationProviderClient(requireContext())
+                 val task = fusedLocationProviderClient.lastLocation
+                 viewModel._shopList.observe(viewLifecycleOwner, {
+                     shopsAdapter =
+                         ShopsAdapter(requireContext(), it.body()?.data as ArrayList<ShoplistData>)
+                     for (i in 0 until shopsAdapter.itemCount) {
+                         val data = it.body()!!
+                         val lat = data.data[i].latitude
+                         val long = data.data[i].longitude
 
-                    Toast.makeText(requireContext(), "$lat,$long", Toast.LENGTH_SHORT).show()
-                    googleMap.addMarker(
-                        MarkerOptions()
-                            .position(LatLng(33.63590279711394, 73.07044803999847))
-                            .title(data.data[i].shop_name)
-                            .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.ic_shop))
-                    )?.showInfoWindow()
-                }
-            })
-            task.addOnSuccessListener {
-                val marker = LatLng(it.latitude, it.longitude)
-                googleMap.addMarker(MarkerOptions().position(marker).title("Marker in Sydney"))
-                val location = CameraUpdateFactory.newLatLngZoom(
-                    marker, 15f
-                )
-                googleMap.animateCamera(location)
-            }
-            viewModel._shopList.observe(viewLifecycleOwner, {
-                shopsAdapter =
-                    ShopsAdapter(requireContext(), it.body()?.data as ArrayList<ShoplistData>)
+                         Toast.makeText(requireContext(), "$lat,$long", Toast.LENGTH_SHORT).show()
+                         googleMap.addMarker(
+                             MarkerOptions()
+                                 .position(LatLng(33.63590279711394, 73.07044803999847))
+                                 .title(data.data[i].shop_name)
+                                 .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.ic_shop))
+                         )?.showInfoWindow()
+                     }
+                 })
+                 task.addOnSuccessListener {
+                     val marker = LatLng(it.latitude, it.longitude)
+                     googleMap.addMarker(MarkerOptions().position(marker).title("Marker in Sydney"))
+                     val location = CameraUpdateFactory.newLatLngZoom(
+                         marker, 15f
+                     )
+                     googleMap.animateCamera(location)
+                 }
+                 viewModel._shopList.observe(viewLifecycleOwner, {
+                     shopsAdapter =
+                         ShopsAdapter(requireContext(), it.body()?.data as ArrayList<ShoplistData>)
 
-                for (i in 0 until shopsAdapter.itemCount) {
-                    val data = it.body()!!
-                    val lat = data.data[i].latitude
-                    val long = data.data[i].longitude
+                     for (i in 0 until shopsAdapter.itemCount) {
+                         val data = it.body()!!
+                         val lat = data.data[i].latitude
+                         val long = data.data[i].longitude
 
-                    Toast.makeText(requireContext(), "$lat,$long", Toast.LENGTH_SHORT).show()
-                    googleMap.addMarker(
-                        MarkerOptions()
-                            .position(LatLng(33.63590279711394, 73.07044803999847))
-                            .title(data.data[i].shop_name)
-                            .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.ic_shop))
-                    )?.showInfoWindow()
-                }
-            })
-        }*/
+                         Toast.makeText(requireContext(), "$lat,$long", Toast.LENGTH_SHORT).show()
+                         googleMap.addMarker(
+                             MarkerOptions()
+                                 .position(LatLng(33.63590279711394, 73.07044803999847))
+                                 .title(data.data[i].shop_name)
+                                 .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.ic_shop))
+                         )?.showInfoWindow()
+                     }
+                 })
+             }*/
         return inflater.inflate(R.layout.fragment_nearby, container, false)
     }
 
@@ -106,15 +91,6 @@ class NearbyFragment : Fragment() {
 
     }
 
-        private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
-            return ContextCompat.getDrawable(context, vectorResId)?.run {
-                setBounds(0, 0, intrinsicWidth, intrinsicHeight)
-                val bitmap =
-                    Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
-                draw(Canvas(bitmap))
-                BitmapDescriptorFactory.fromBitmap(bitmap)
-            }
-        }
 
     /*fun CalculationByDistance(StartP: LatLng, EndP: LatLng): Double {
         val Radius = 6371 // radius of earth in Km
@@ -152,4 +128,3 @@ class NearbyFragment : Fragment() {
             BitmapDescriptorFactory.fromBitmap(bitmap)
         }
     }
-}
