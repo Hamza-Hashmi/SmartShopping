@@ -38,7 +38,6 @@ class CartFragment : Fragment() {
         viewModel = (activity as DashBoardActivity).viewModel
         if (userId != null) {
             viewModel.getCartListData(userId.toInt())
-
             viewModel._cartList.observe(viewLifecycleOwner, {
 
                 Log.e("TAG", "onCreateView:cart list ${userId.toString()}")
@@ -53,6 +52,9 @@ class CartFragment : Fragment() {
                     total += count
                 }
 
+                if (cartListAdapter.cartList.size <= 0) {
+                    binding.btnPlaceOrder.visibility = View.GONE
+                }
                 binding.totalAmountTv.text = "Place Order Total:\u00a3 $total"
                 binding.recyclerviewItems.adapter = cartListAdapter
             })
@@ -68,8 +70,10 @@ class CartFragment : Fragment() {
                         if (cartListAdapter.cartList.size > 0) {
                             cartListAdapter.cartList.clear()
                             cartListAdapter.notifyDataSetChanged()
+                            binding.btnPlaceOrder.visibility = View.VISIBLE
                             binding.totalAmountTv.text = "Place Order"
-
+                        } else {
+                            binding.btnPlaceOrder.visibility = View.GONE
                         }
                         /* val ft = childFragmentManager.beginTransaction()
                          if (Build.VERSION.SDK_INT >= 26) {

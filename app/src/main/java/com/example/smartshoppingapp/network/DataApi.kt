@@ -39,4 +39,8 @@ interface DataApi {
     @FormUrlEncoded
     @POST("place-order")
     suspend fun placeOrder(@Field("user_id") User_id: Int): Response<OrderResponse>
+
+    @FormUrlEncoded
+    @POST("user-notification")
+    suspend fun notification(@Field("user_id") user_id : Int) : Response<NotificationResponse>
 }
