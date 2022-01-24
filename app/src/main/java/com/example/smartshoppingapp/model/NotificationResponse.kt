@@ -1,3 +1,6 @@
 package com.example.smartshoppingapp.model
 
-data class NotificationResponse()
+data class NotificationResponse(
+    val `data`: List<DataX>,
+    val status: String
+)

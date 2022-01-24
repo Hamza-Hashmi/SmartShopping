@@ -29,6 +29,8 @@ class RegistrationViewModel(val repo: RemoteDataRepo) : ViewModel() {
     val _cartList: MutableLiveData<Response<CartListResponse>> = MutableLiveData()
 
     val _order: MutableLiveData<Response<OrderResponse>> = MutableLiveData()
+
+    val _notifications:MutableLiveData<Response<NotificationResponse>> = MutableLiveData()
     /* methods*/
 
     fun signUp(userRegistration: SignupModel) = viewModelScope.launch {
@@ -75,6 +77,11 @@ class RegistrationViewModel(val repo: RemoteDataRepo) : ViewModel() {
     fun placeOrder(User_id: Int) = viewModelScope.launch {
         val response = repo.placeOrder(User_id)
         _order.postValue(response)
+    }
+
+    fun getNotification(user_id: Int) = viewModelScope.launch {
+        val response = repo.getNotification(user_id)
+        _notifications.postValue(response)
     }
 
 /*

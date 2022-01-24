@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -44,15 +45,18 @@ class HomeFragment : Fragment() {
         binding.recyclerviewItems.layoutManager = layoutManager
 
         viewModel._shopList.observe(viewLifecycleOwner, {
-            shopsAdapter =
-                ShopsAdapter(requireContext(), it.body()?.data as ArrayList<ShoplistData>) {
-                    Log.e("TAG", "onCreateView: ${it}")
-                    shopId = it
-                    findNavController().navigate(R.id.action_homeFragment_to_shopProductsFragment)
-                }
+                shopsAdapter =
+                    ShopsAdapter(requireContext(), it.body()?.data as ArrayList<ShoplistData>) {
+                        Log.e("TAG", "onCreateView: ${it}")
+                        shopId = it
+                        findNavController().navigate(R.id.action_homeFragment_to_shopProductsFragment)
+                    }
 
-            binding.progressbar.visibility = View.GONE
-            binding.recyclerviewItems.adapter = shopsAdapter
+                binding.progressbar.visibility = View.GONE
+                binding.recyclerviewItems.adapter = shopsAdapter
+
+
+
         })
 
         return binding.root

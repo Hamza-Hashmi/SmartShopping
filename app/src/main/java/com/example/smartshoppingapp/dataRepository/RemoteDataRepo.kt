@@ -31,6 +31,9 @@ class RemoteDataRepo(val context: Context) {
 
     suspend fun placeOrder(User_id: Int): Response<OrderResponse> =
         RetrofitInstance.getapi(context).placeOrder(User_id)
+
+    suspend fun getNotification(user_id:Int):Response<NotificationResponse> =
+          RetrofitInstance.getapi(context).notification(user_id)
 }
 
 
