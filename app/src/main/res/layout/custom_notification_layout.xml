@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/popins_bold"
-            android:text="Notification Type"
+            android:text="Alert "
             android:textColor="@color/black" />
 
         <TextView

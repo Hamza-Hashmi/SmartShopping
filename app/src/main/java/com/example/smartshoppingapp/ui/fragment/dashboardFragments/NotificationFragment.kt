@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.example.smartshoppingapp.Adapter.NotificationAdapter
 import com.example.smartshoppingapp.AppUtils.SharedHelper
 import com.example.smartshoppingapp.R
 import com.example.smartshoppingapp.databinding.FragmentNotificationBinding
+import com.example.smartshoppingapp.model.DataX
 import com.example.smartshoppingapp.ui.activites.DashBoardActivity
 import com.example.smartshoppingapp.viewModels.RegistrationViewModel
 
@@ -31,9 +34,18 @@ class NotificationFragment : Fragment() {
 
             viewModel._notifications.observe(viewLifecycleOwner,{
 
-                 binding?.progressbar?.visibility = View.GONE
+                if (it.body()?.data?.size!! > 0){
+                    binding?.progressbar?.visibility = View.GONE
 
-                Log.e("TAG", "onCreateView notification: ${it.body()?.data}" )
+                    val adapter = NotificationAdapter(it.body()?.data as ArrayList<DataX>)
+
+                    binding?.notificationRv?.adapter = adapter
+                    Log.e("TAG", "onCreateView notification: ${it.body()?.data}" )
+                }
+                else{
+                    Toast.makeText(requireContext(), "No Notification.... ", Toast.LENGTH_LONG).show()
+                }
+
             })
         }
 

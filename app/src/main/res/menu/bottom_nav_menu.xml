@@ -13,10 +13,12 @@
         android:title="Cart"
         android:id="@+id/cartFragment"
         android:icon="@drawable/ic_cart" />
+<!--
     <item
         android:id="@+id/savedFragment"
         android:icon="@drawable/ic_order"
         android:title="Orders" />
+-->
     <item
         android:id="@+id/notificationFragment"
         android:icon="@drawable/ic_notification"
