@@ -14,6 +14,10 @@ import com.example.smartshoppingapp.databinding.FragmentNotificationBinding
 import com.example.smartshoppingapp.model.DataX
 import com.example.smartshoppingapp.ui.activites.DashBoardActivity
 import com.example.smartshoppingapp.viewModels.RegistrationViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class NotificationFragment : Fragment() {
     lateinit var viewModel: RegistrationViewModel
@@ -27,10 +31,24 @@ class NotificationFragment : Fragment() {
         binding = FragmentNotificationBinding.inflate(layoutInflater)
         val userId = SharedHelper.getKey(requireActivity(), "userID")
 
+        Log.e("TAG", "onCreateView: $userId" )
         binding?.progressbar?.visibility = View.VISIBLE
         viewModel = (activity as DashBoardActivity).viewModel
         if (userId != null) {
-            viewModel.getNotification(userId.toInt())
+            /*try{
+                viewModel.getNotification(userId.toInt())
+            }catch (e:Exception){
+
+            }*/
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    delay(2000)
+                }.invokeOnCompletion {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        Toast.makeText(requireContext(), "An internal error occured", Toast.LENGTH_LONG).show()
+                        binding?.progressbar?.visibility = View.GONE
+                    }
+                }
 
             viewModel._notifications.observe(viewLifecycleOwner,{
 

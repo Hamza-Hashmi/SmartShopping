@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
 
-    val BASE_URL = "http://cottageappsstudio.com/public/api/"
+    val BASE_URL = "http://cottageappsstudio.com/api/"
 
     fun getapi(context: Context): DataApi {
 
